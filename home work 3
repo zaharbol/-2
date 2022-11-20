@@ -1,0 +1,9 @@
+import java.util.Scanner;
+public class MyForm {public static void main(String[]args){
+
+    Scanner gh = new Scanner(System.in);
+    long x = gh.nextInt();
+    Long y = x*x*x/10;
+    long z = y%7;
+    System.out.println(z); }
+}
