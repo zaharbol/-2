@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Array {
+    public static void main(String[] args) {
+        String[] q = new String[5];
+
+        q[0] = "Вы зашли в темную комнату. В темноте слышен пугающий шорох. Ваши действия?";
+        q[1] = "Выйти из комнаты";
+        q[2] = "Включить свет";
+        q[3] = "Шагнуть навстречу зловещему звуку";
+        q[4] = "Крикнуть что есть сил 'уходи отсюда!'";
+
+        Scanner superscanner = new Scanner(System.in);
+
+
+        boolean gameOver = false;
+        int count = 0;
+        int answerCount = 0;
+        while (gameOver != true) {
+            System.out.println(q[0]);
+            for (int i = 1; i < 5; i++) {
+                System.out.println(i + ": " + q[i]);
+            }
+            System.out.print("Ваши действия: ");
+            int answer = superscanner.nextInt();
+
+
+            if (answer == 1) { count = 0;
+                answerCount=answerCount+1;
+                System.out.println("Разумно и безопасно. Вы остались целы, хоть и не узнали, что это было");
+                gameOver = true; // закончить игру. Как вариант - вместо этого написать break.
+            }
+
+            if (answer == 2) {
+                count = count + 1;
+                answerCount=answerCount+1;
+                if (count == 5) {
+                    System.out.println("Свет наконец-то включился, и вы увидели что это всего навсего ваш любимый кот.");
+                    gameOver = true;
+                } else {
+                    q[0] = "Выключатель предательски треснул. Свет не включился, пугающий шорох все ближе";
+                    q[2] = "Еще раз попробовать включить свет {для самых одаренных}";
+                }
+            }
+            if (answer == 3 || answer == 4) {count = 0;
+                answerCount=answerCount+1;
+                if (q[0].endsWith("громче")) { // если вопрос заканчивается на "..громче"
+                    q[0] = q[0] + " и еще громче"; // добавим к нему и еще громче
+                } else {
+                    q[0] = "Звук становится громче и громче";
+                }
+            }
+          if(answerCount>=10){System.out.println("Достигнуто максимальное количество шагов. Игра окончена.");
+          gameOver=true;}
+            }
+        }
+    }
