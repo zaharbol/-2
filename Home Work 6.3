@@ -1,0 +1,51 @@
+import java.util.Scanner;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
+
+
+public class Dates3 {
+    public static void main(String[] args) {
+        Scanner c = new Scanner(System.in);
+        System.out.println("Впишите год.");
+        int x = c.nextInt();
+        System.out.println("Впишите месяц.");
+        int y = c.nextInt();
+        System.out.println("Впишите день.");
+        int t = c.nextInt();
+        System.out.println("Впишите час.");
+        int r = c.nextInt();
+        System.out.println("Впишите минуту.");
+        int d = c.nextInt();
+
+        System.out.println("Впишите год.");
+        int g = c.nextInt();
+        System.out.println("Впишите месяц. E");
+        int h = c.nextInt();
+        System.out.println("Впишите день.");
+        int j = c.nextInt();
+        System.out.println("Впишите час.");
+        int n = c.nextInt();
+        System.out.println("Впишите минуту.");
+        int b = c.nextInt();
+
+        ZonedDateTime DateTime1 = ZonedDateTime.of(x,y,t,r,d,0,0,ZoneId.of("Europe/Moscow"));
+        ZonedDateTime DateTime2 = ZonedDateTime.of(g,h,j,n,b,0,0,ZoneId.of("Europe/Moscow"));
+
+        long v = ChronoUnit.HOURS.between(DateTime1,DateTime2);
+        long m = ChronoUnit.DAYS.between(DateTime1,DateTime2);
+        long s = ChronoUnit.YEARS.between(DateTime1,DateTime2);
+        long z = ChronoUnit.MINUTES.between(DateTime1,DateTime2);
+        long e = ChronoUnit.MONTHS.between(DateTime1,DateTime2);
+        System.out.print("год: ");
+        System.out.println(s);
+        System.out.print("месяц: ");
+        System.out.println(e);
+        System.out.print("день: ");
+        System.out.println(m);
+        System.out.print("час: ");
+        System.out.println(v);
+        System.out.print("минута: ");
+        System.out.println(z);
+    }
+}
