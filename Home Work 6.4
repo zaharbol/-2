@@ -1,0 +1,24 @@
+mport java.time.LocalDateTime;
+import java.time.LocalDate;
+public class Date4 {
+    public static void main(String[] args) {
+        int yr = LocalDate.now().getYear();
+        int mn = LocalDate.now().getMonthValue();
+        int dm = LocalDate.now().getDayOfMonth();
+        int hrs = LocalDateTime.now().getHour();
+        int min = LocalDateTime.now().getMinute();
+        LocalDateTime time = LocalDateTime.of(yr, mn, dm, hrs, min);
+        System.out.println(time);
+        for(int i = 0; i < 14; i++) {
+            time = time.plusMinutes(45);
+            int korm1 = time.getHour();
+            int korm2 = time.getMinute();
+            if (time.getDayOfMonth()!=LocalDate.now().getDayOfMonth()) {
+                System.out.println("Покормить завтра в: " + korm1 + ":" + korm2);
+            } else {
+                System.out.println("Покормить в: " + korm1 + ":" + korm2);
+            }
+        }
+
+    }
+}
