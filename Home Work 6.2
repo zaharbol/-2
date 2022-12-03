@@ -1,0 +1,12 @@
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Scanner;
+public class Date2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Введите регион: ");
+        String x = sc.nextLine();
+        LocalDateTime currentTime = LocalDateTime.now();
+        ZonedDateTime Time1 = ZonedDateTime.now(ZoneId.of(x));
+        System.out.println(Time1);}}
